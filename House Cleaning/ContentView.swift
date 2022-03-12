@@ -15,7 +15,7 @@ struct ContentView: View {
 					.fontWeight(.light)
 					.padding()
 					.font(.title3)
-					.foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+					.foregroundColor(.blue)
 				Text("Hi, neat freak.")
 					.fontWeight(.bold)
 					.padding()
@@ -30,8 +30,8 @@ struct ContentView: View {
 					.padding()
 					.frame(width: 400, height: 80, alignment: .leading)
 				NavigationLink(destination: SampleView()) { Text("click here") }
-
-
+				
+				
 				Spacer()
 			}
 		}
