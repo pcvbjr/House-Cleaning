@@ -13,6 +13,8 @@
 		A439B17B27D8386B009E587F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A439B17A27D8386B009E587F /* Preview Assets.xcassets */; };
 		A439B18627D8386B009E587F /* House_CleaningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B18527D8386B009E587F /* House_CleaningTests.swift */; };
 		A439B19127D8386B009E587F /* House_CleaningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B19027D8386B009E587F /* House_CleaningUITests.swift */; };
+		F3A2A51F27DD0C3500E2F3F0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2A51E27DD0C3500E2F3F0 /* DetailView.swift */; };
+		F3A2A52127DD0E8100E2F3F0 /* DetailViewCTA.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2A52027DD0E8000E2F3F0 /* DetailViewCTA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		A439B18C27D8386B009E587F /* House CleaningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "House CleaningUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A439B19027D8386B009E587F /* House_CleaningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House_CleaningUITests.swift; sourceTree = "<group>"; };
 		A439B19227D8386B009E587F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3A2A51E27DD0C3500E2F3F0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F3A2A52027DD0E8000E2F3F0 /* DetailViewCTA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCTA.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 			children = (
 				A439B17327D83869009E587F /* House_CleaningApp.swift */,
 				A439B17527D83869009E587F /* ContentView.swift */,
+				F3A2A52027DD0E8000E2F3F0 /* DetailViewCTA.swift */,
+				F3A2A51E27DD0C3500E2F3F0 /* DetailView.swift */,
 				A439B17727D8386B009E587F /* Assets.xcassets */,
 				A439B17C27D8386B009E587F /* Info.plist */,
 				A439B17927D8386B009E587F /* Preview Content */,
@@ -259,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3A2A52127DD0E8100E2F3F0 /* DetailViewCTA.swift in Sources */,
 				A439B17627D83869009E587F /* ContentView.swift in Sources */,
+				F3A2A51F27DD0C3500E2F3F0 /* DetailView.swift in Sources */,
 				A439B17427D83869009E587F /* House_CleaningApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
