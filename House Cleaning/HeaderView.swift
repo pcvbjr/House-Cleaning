@@ -1,16 +1,16 @@
 //
-//  ContentView.swift
+//  HeaderView.swift
 //  House Cleaning
 //
-//  Created by Chris Van Buren on 3/8/22.
+//  Created by Chris Van Buren on 3/12/22.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct HeaderView: View {
     var body: some View {
 		NavigationView{
-			NavigationTabs()
+			Text("Header text")
 				.navigationTitle("CleanWiz")
 				.navigationBarTitleDisplayMode(.inline)
 				.toolbar {
@@ -22,16 +22,16 @@ struct ContentView: View {
 							  }
 							}
 				}
+		/*Text("Hello, world!")
+			.navigationTitle("Title")
+			.navigationBarTitleDisplayMode(.inline)*/
+
 		}
-		
-	}
-		
+    }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
+struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-			.environment(\.locale, Locale(identifier: "us"))
+        HeaderView()
     }
 }
