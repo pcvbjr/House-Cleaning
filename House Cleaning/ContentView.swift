@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-		ZStack {
-
+		NavigationView{
 			VStack(alignment: .center) {
 				Text("CleanWiz")
 					.fontWeight(.light)
@@ -30,11 +29,22 @@ struct ContentView: View {
 					.font(.headline)
 					.padding()
 					.frame(width: 400, height: 80, alignment: .leading)
+				NavigationLink(destination: SampleView()) { Text("click here") }
+
+
 				Spacer()
 			}
 		}
+		
     }
 }
+
+struct SampleView: View{
+	var body: some View{
+		Text("made it to this page")
+	}
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
