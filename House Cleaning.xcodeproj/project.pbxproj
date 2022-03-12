@@ -15,6 +15,7 @@
 		A439B19127D8386B009E587F /* House_CleaningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B19027D8386B009E587F /* House_CleaningUITests.swift */; };
 		F3A2A51F27DD0C3500E2F3F0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2A51E27DD0C3500E2F3F0 /* DetailView.swift */; };
 		F3A2A52127DD0E8100E2F3F0 /* DetailViewCTA.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2A52027DD0E8000E2F3F0 /* DetailViewCTA.swift */; };
+		F3A2A52327DD135F00E2F3F0 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2A52227DD135E00E2F3F0 /* CheckboxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		A439B19227D8386B009E587F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A2A51E27DD0C3500E2F3F0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		F3A2A52027DD0E8000E2F3F0 /* DetailViewCTA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCTA.swift; sourceTree = "<group>"; };
+		F3A2A52227DD135E00E2F3F0 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				A439B17327D83869009E587F /* House_CleaningApp.swift */,
 				A439B17527D83869009E587F /* ContentView.swift */,
+				F3A2A52227DD135E00E2F3F0 /* CheckboxView.swift */,
 				F3A2A52027DD0E8000E2F3F0 /* DetailViewCTA.swift */,
 				F3A2A51E27DD0C3500E2F3F0 /* DetailView.swift */,
 				A439B17727D8386B009E587F /* Assets.xcassets */,
@@ -268,6 +271,7 @@
 				F3A2A52127DD0E8100E2F3F0 /* DetailViewCTA.swift in Sources */,
 				A439B17627D83869009E587F /* ContentView.swift in Sources */,
 				F3A2A51F27DD0C3500E2F3F0 /* DetailView.swift in Sources */,
+				F3A2A52327DD135F00E2F3F0 /* CheckboxView.swift in Sources */,
 				A439B17427D83869009E587F /* House_CleaningApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

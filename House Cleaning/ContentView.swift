@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    // set the t/f value of your CheckboxView view
+    @State var checked = true
     var body: some View {
         NavigationView{
             VStack(alignment: .center) {
@@ -32,6 +35,13 @@ struct ContentView: View {
                 
                 // tasks dynamically populate within frame here
                 
+                HStack {
+                    CheckboxView(checked: $checked)
+                    Text("Element that requires checkmark!")
+                }
+                .padding()
+                Divider()
+                .padding()
                 DetailViewCTA()
                 
                 
