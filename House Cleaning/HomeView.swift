@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct HomeView: View {
+	@State var checked = true
+
     var body: some View {
-        Text("HomeView page")
+		
+		VStack {
+			Text("HomeView page")
+			HStack {
+				CheckboxView(checked: $checked)
+				Text("Element that requires checkmark!")
+					.padding()
+			}
+		}
+		
+		
     }
 }
 

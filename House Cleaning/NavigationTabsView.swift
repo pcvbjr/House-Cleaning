@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NavigationTabs: View {
+struct NavigationTabsView: View {
     var body: some View {
 
 			TabView(selection: .constant(1)) {
@@ -27,6 +27,6 @@ struct NavigationTabs: View {
 
 struct NavigationTabs_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationTabs()
+        NavigationTabsView()
     }
 }
