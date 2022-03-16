@@ -14,6 +14,7 @@ struct User: Codable, Identifiable {
 		case duration
 		case date
 		case id
+		//case checked
 	}
 	
 	//var id = UUID()
@@ -21,10 +22,12 @@ struct User: Codable, Identifiable {
 	var name: String
 	var duration: String
 	var date: String
+	//var date: checked
 }
 
 class ReadData: ObservableObject  {
 	@Published var users = [User]()
+	@Published var checked = [Bool]()
 	
 		
 	init(){
@@ -41,6 +44,11 @@ class ReadData: ObservableObject  {
 		let data = try? Data(contentsOf: url)
 		let users = try? JSONDecoder().decode([User].self, from: data!)
 		self.users = users!
+		
+		for user in self.users {
+			checked = checked + [false]
+		}
+		print(self.checked)
 		
 	}
 	 
