@@ -1,0 +1,32 @@
+[
+	{
+		"id" : 1,
+		"name": "Take out trash",
+		"duration": "7",
+		"date": "2022-09-12"
+   },
+	{
+		"id" : 2,
+		"name": "Clean sheets",
+		"duration": "14",
+		"date": "2022-11-02"
+   },
+	{
+		"id" : 3,
+		"name": "New toothbrush",
+		"duration": "180",
+		"date": "2023-01-01"
+   },
+	{
+		"id" : 4,
+		"name": "Wash car",
+		"duration": "90",
+		"date": "2022-05-30"
+   },
+	{
+		"id" : 5,
+		"name": "Kiss hot boyfriend",
+		"duration": "0",
+		"date": "2022-03-13"
+	}
+]
