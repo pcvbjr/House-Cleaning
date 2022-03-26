@@ -50,11 +50,9 @@ struct DynoListView: View {
             return finalDate
         }
     
-    // func that takes a date (String) and time duration (String), adds them together, and returns the final date as a string
+    // func that takes a time duration (String), adds it to today's date, and returns the final date as a string
     
-    func dateAdder (currDate: String, duration: String) -> String {
-        // create initial dateComponents() obj
-        let currDateComponent = stringToDate(string: currDate)
+    func dateAdder (duration: String) -> String {
         
         // create duration Int for adder function
         let dayInt = Int(duration) ?? 0
@@ -62,13 +60,17 @@ struct DynoListView: View {
         // set reference calendar for adding functions
         let calendar = Calendar.autoupdatingCurrent
         
-        // convert dateComponents() obj to a Date() obj
-        guard let currDateObj = calendar.date(from: currDateComponent) else {
-            return "ADDER ERROR: conversion to Date obj failed"
-        }
+        // create Date() obj; automatically set to today's date & time
+        let currDate = Date()
+        
+        // CODE JUST FOR REFERENCE: conv ert dateComponents() obj to a Date() obj
+        
+//        guard let currDateObj = calendar.date(from:       currDateComponent) else {
+//            return "ADDER ERROR: conversion to Date obj failed"
+//        }
         
         // add your day duration to the date passed in to the function
-        guard let addedDate = calendar.date(byAdding: .day, value: dayInt, to: currDateObj) else { return "ADDER ERROR: built in date function failed" }
+        guard let addedDate = calendar.date(byAdding: .day, value: dayInt, to: currDate) else { return "ADDER ERROR: built in date function failed" }
         
         // convert your added date of Date() obj back to DateComponents() obj
         let dateComponentsOfAdded = Calendar.autoupdatingCurrent.dateComponents([.year, .month, .day], from: addedDate)
@@ -86,16 +88,9 @@ struct DynoListView: View {
                var strDateTest = dateToString(date: testDate)
                
         
-        var testString = "2022-1-13"
-        var testDurationString = "20"
+        var testDurationString = "90"
         
-        var dateAdded = dateAdder(currDate: testString, duration: testDurationString)
-        
-//        var dateObj = stringToDate(string: testString)
-//        var backToString = dateToString(date: dateObj)
-
-//        let myCal = Calendar(identifier: .iso8601)
-//        let finalDate = myCal.date(from: dateObj)
+        var dateAdded = dateAdder(duration: testDurationString)
         
         VStack{
             Text("This is a dateAdder test: " + dateAdded)
