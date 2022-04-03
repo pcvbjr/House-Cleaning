@@ -13,6 +13,7 @@
 		A439B17B27D8386B009E587F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A439B17A27D8386B009E587F /* Preview Assets.xcassets */; };
 		A439B18627D8386B009E587F /* House_CleaningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B18527D8386B009E587F /* House_CleaningTests.swift */; };
 		A439B19127D8386B009E587F /* House_CleaningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B19027D8386B009E587F /* House_CleaningUITests.swift */; };
+		A4435B2727FA49C200A7B8A2 /* dateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4435B2627FA49C200A7B8A2 /* dateFunctions.swift */; };
 		A45893C327E013A4008FB306 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45893C227E013A4008FB306 /* CheckboxView.swift */; };
 		A45893C827E0162F008FB306 /* DynoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45893C727E0162F008FB306 /* DynoListView.swift */; };
 		A45893F627E036C4008FB306 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45893F527E036C4008FB306 /* Tasks.swift */; };
@@ -52,6 +53,7 @@
 		A439B18C27D8386B009E587F /* House CleaningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "House CleaningUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A439B19027D8386B009E587F /* House_CleaningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House_CleaningUITests.swift; sourceTree = "<group>"; };
 		A439B19227D8386B009E587F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4435B2627FA49C200A7B8A2 /* dateFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateFunctions.swift; sourceTree = "<group>"; };
 		A45893C227E013A4008FB306 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		A45893C727E0162F008FB306 /* DynoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynoListView.swift; sourceTree = "<group>"; };
 		A45893F527E036C4008FB306 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				A45893C727E0162F008FB306 /* DynoListView.swift */,
 				A45893FB27E04D34008FB306 /* test_json.json */,
 				A45893F527E036C4008FB306 /* Tasks.swift */,
+				A4435B2627FA49C200A7B8A2 /* dateFunctions.swift */,
 				A439B17527D83869009E587F /* ContentView.swift */,
 				A4FD6DD627DD109900AAC5B2 /* NavigationTabsView.swift */,
 				A45893C227E013A4008FB306 /* CheckboxView.swift */,
@@ -284,6 +287,7 @@
 				A439B17627D83869009E587F /* ContentView.swift in Sources */,
 				A4FD6DE627DD20D600AAC5B2 /* DetailView.swift in Sources */,
 				A439B17427D83869009E587F /* House_CleaningApp.swift in Sources */,
+				A4435B2727FA49C200A7B8A2 /* dateFunctions.swift in Sources */,
 				A4FD6DD727DD109900AAC5B2 /* NavigationTabsView.swift in Sources */,
 				A45893F627E036C4008FB306 /* Tasks.swift in Sources */,
 				A45893C327E013A4008FB306 /* CheckboxView.swift in Sources */,

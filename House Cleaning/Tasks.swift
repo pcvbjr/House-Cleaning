@@ -42,7 +42,7 @@ class ReadData: ObservableObject  {
 			}
 		
 		let data = try? Data(contentsOf: url)
-		let users = try? JSONDecoder().decode([User].self, from: data!)
+		var users = try? JSONDecoder().decode([User].self, from: data!)
 		self.users = users!
 		
 		for user in self.users {
@@ -53,3 +53,6 @@ class ReadData: ObservableObject  {
 	}
 	 
 }
+
+
+
