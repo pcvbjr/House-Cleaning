@@ -9,6 +9,8 @@ import SwiftUI
 import Foundation
 
 struct DynoListView: View {
+	@ObservedObject var datas = ReadData();
+
 	
 	// returns in yyyy-MM-dd format
 	// TO DO: NEED TO ENSURE THAT THERE IS ZERO PADDING TO LEFT IN SINGLE DIGIT DAYS AND MONTHS
@@ -65,11 +67,30 @@ struct DynoListView: View {
 //		let myCal = Calendar(identifier: .iso8601)
 //		let finalDate = myCal.date(from: dateObj)
 		
-		VStack{
-			Text("This is a string test: " + strDateTest)
-			Text("Thru both converter functions: " + backToString)
+		List(datas.users){ user in
 
+			HStack{
+				CheckboxView(checked: $datas.checked[user.id-1])
+					VStack(alignment: .leading) {
+						
+						Text(user.name)
+							.font(.title)
+							.fontWeight(.heavy)
+							.foregroundColor(Color.gray)
+							
+						HStack{
+							Text(user.duration)
+								.font(.title3)
+								.foregroundColor(Color.red)
+								
+							Spacer()
+							Text(user.date)
+								.font(.title3)
+						}
+					}
+				}
 		}
+
 			   }
 }
 
