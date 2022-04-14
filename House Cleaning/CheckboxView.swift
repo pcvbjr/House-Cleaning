@@ -24,6 +24,8 @@ struct CheckboxView: View {
 						print(user.date)
 						print(user)
 						// user is updated to new date. Need to write this to json file
+						print("checked, initiate write")
+						datas.writeData()
 					}
 				}
 			//	var datas = ReadData()
