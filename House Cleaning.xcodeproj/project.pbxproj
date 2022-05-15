@@ -57,7 +57,7 @@
 		A45893C227E013A4008FB306 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		A45893C727E0162F008FB306 /* DynoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynoListView.swift; sourceTree = "<group>"; };
 		A45893F527E036C4008FB306 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
-		A45893FB27E04D34008FB306 /* test_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test_json.json; path = "House Cleaning/test_json.json"; sourceTree = SOURCE_ROOT; };
+		A45893FB27E04D34008FB306 /* test_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test_json.json; path = "House Cleaning/Resources/test_json.json"; sourceTree = SOURCE_ROOT; };
 		A4FD6DD627DD109900AAC5B2 /* NavigationTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabsView.swift; sourceTree = "<group>"; };
 		A4FD6DE027DD20A700AAC5B2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A4FD6DE527DD20D600AAC5B2 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			children = (
 				A439B17327D83869009E587F /* House_CleaningApp.swift */,
 				A45893C727E0162F008FB306 /* DynoListView.swift */,
-				A45893FB27E04D34008FB306 /* test_json.json */,
+				A4435B2C2831608800A7B8A2 /* Resources */,
 				A45893F527E036C4008FB306 /* Tasks.swift */,
 				A4435B2627FA49C200A7B8A2 /* dateFunctions.swift */,
 				A439B17527D83869009E587F /* ContentView.swift */,
@@ -152,6 +152,14 @@
 				A439B19227D8386B009E587F /* Info.plist */,
 			);
 			path = "House CleaningUITests";
+			sourceTree = "<group>";
+		};
+		A4435B2C2831608800A7B8A2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A45893FB27E04D34008FB306 /* test_json.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

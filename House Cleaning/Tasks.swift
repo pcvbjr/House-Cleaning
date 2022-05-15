@@ -32,21 +32,56 @@ class ReadData: ObservableObject  {
 	var fileName = "test_json"
 	var fileExtension = "json"
 	
+
 		
 	init(){
 		loadData()
+		//var fileObj = try? ReadData.loadJSON(withFilename: fileName)
 	}
+	
+	/*static func loadJSON(withFilename filename: String) throws -> Any? {
+			let fm = FileManager.default
+			let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
+			if let url = urls.first {
+				var fileURL = url.appendingPathComponent(filename)
+				fileURL = fileURL.appendingPathExtension("json")
+				let data = try Data(contentsOf: fileURL)
+				let jsonObject = try JSONSerialization.jsonObject(with: data, options: [.mutableContainers, .mutableLeaves])
+				return jsonObject
+			}
+			return nil
+		}
+	
+	static func save(jsonObject: Any, toFilename filename: String) throws -> Bool{
+		let fm = FileManager.default
+		let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
+		if let url = urls.first {
+			var fileURL = url.appendingPathComponent(filename)
+			fileURL = fileURL.appendingPathExtension("json")
+			let data = try JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted])
+			try data.write(to: fileURL, options: [.atomicWrite])
+			return true
+		}
+		
+		return false
+	}
+	*/
+	
 	
 	func loadData()  {
 		/*guard let url = Bundle.main.url(forResource: fileName, withExtension: fileExtension)
 			else {
 				print("Json file not found")
-				return */
+				return
+			}*/
+		let url = try? FileManager.default
+			.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+			.appendingPathComponent(fileName)
+			.appendingPathExtension(fileExtension)
 		
-			}
 		print("---> reading file: \(url)")
 
-		let data = try? Data(contentsOf: url)
+		var data = try? Data(contentsOf: url!)
 		var users = try? JSONDecoder().decode([User].self, from: data!)
 		self.users = users!
 		
@@ -71,7 +106,15 @@ class ReadData: ObservableObject  {
 			print("---> error saveToFile: \(error)")
 
 		}
+		//ReadData.save(jsonObject: fileObj, toFilename: fileName)
+		print(users)
 		
+	}
+	
+	func reloadData() {
+		print("reload data")
+		loadData()
+		print(users)
 	}
 	 
 }

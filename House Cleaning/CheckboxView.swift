@@ -18,14 +18,22 @@ struct CheckboxView: View {
 			.onTapGesture {
 				self.checked.toggle()
 				var newDate = dateAdder(duration: duration)
+				var count = 0
 				for var user in datas.users {
 					if user.id == id{
 						user.date = newDate
 						print(user.date)
 						print(user)
+						datas.users[count] = user
+						print(datas.users)
 						// user is updated to new date. Need to write this to json file
 						print("checked, initiate write")
 						datas.writeData()
+						datas.reloadData()
+						break
+					}
+					else{
+						count += 1
 					}
 				}
 			//	var datas = ReadData()
