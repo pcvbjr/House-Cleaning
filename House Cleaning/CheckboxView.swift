@@ -29,14 +29,19 @@ struct CheckboxView: View {
 						// user is updated to new date. Need to write this to json file
 						print("checked, initiate write")
 						datas.writeData()
-						datas.reloadData()
+						//datas.reloadData()
 						break
 					}
 					else{
 						count += 1
 					}
 				}
-			//	var datas = ReadData()
+				// this unchecks box after 60s.
+				// TODO: replace with pull down refresh that resets all boxes to unchecked
+				let seconds = 60.0
+				DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+					self.checked.toggle()
+				}
 			}
 	}
 }

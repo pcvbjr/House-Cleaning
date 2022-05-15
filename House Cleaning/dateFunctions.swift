@@ -16,9 +16,10 @@ import Foundation
 		
 		var yearStr = yearInt != nil ? String(yearInt!) : "";
 		
-		var monthStr = monthInt != nil ? String(monthInt!) : "";
+		// format to add leading zeros, month and day should always be 2 digits
+		var monthStr = monthInt != nil ? String(format: "%02d", monthInt!) : "";
 		
-		var dayStr = dayInt != nil ? String(dayInt!) : "";
+		var dayStr = dayInt != nil ? String(format: "%02d", dayInt!) : "";
 		
 		return (yearStr + "-" + monthStr + "-" + dayStr)
 	}
@@ -62,7 +63,7 @@ func dateAdder (duration: String) -> String {
 	// create Date() obj; automatically set to today's date & time
 	let currDate = Date()
 	
-	// CODE JUST FOR REFERENCE: conv ert dateComponents() obj to a Date() obj	
+	// CODE JUST FOR REFERENCE: conv ert dateComponents() obj to a Date() obj
 //        guard let currDateObj = calendar.date(from:       currDateComponent) else {
 //            return "ADDER ERROR: conversion to Date obj failed"
 //        }

@@ -15,10 +15,11 @@ struct DynoListView: View {
     var body: some View {
 		
 		List(datas.users){ user in
+			
 
 			HStack{
 				CheckboxView(checked: $datas.checked[user.id-1], id: user.id, duration: user.duration, datas: datas)
-					}
+			}
 
 					VStack(alignment: .leading) {
 						
@@ -31,21 +32,17 @@ struct DynoListView: View {
 							Text(user.duration)
 								.font(.title3)
 								.foregroundColor(Color.red)
-							
-//							Text(user.duration)
-//								.font(.title3)
-//								.foregroundColor(Color.red)
+
 								
 							Spacer()
 							Text(user.date)
 								.font(.title3)
 						}
 					}
-				}
 		}
 
-			   }
-//}
+	}
+}
 
 struct DynoListView_Previews: PreviewProvider {
     static var previews: some View {

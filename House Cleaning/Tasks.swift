@@ -39,33 +39,9 @@ class ReadData: ObservableObject  {
 		//var fileObj = try? ReadData.loadJSON(withFilename: fileName)
 	}
 	
-	/*static func loadJSON(withFilename filename: String) throws -> Any? {
-			let fm = FileManager.default
-			let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
-			if let url = urls.first {
-				var fileURL = url.appendingPathComponent(filename)
-				fileURL = fileURL.appendingPathExtension("json")
-				let data = try Data(contentsOf: fileURL)
-				let jsonObject = try JSONSerialization.jsonObject(with: data, options: [.mutableContainers, .mutableLeaves])
-				return jsonObject
-			}
-			return nil
-		}
-	
-	static func save(jsonObject: Any, toFilename filename: String) throws -> Bool{
-		let fm = FileManager.default
-		let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
-		if let url = urls.first {
-			var fileURL = url.appendingPathComponent(filename)
-			fileURL = fileURL.appendingPathExtension("json")
-			let data = try JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted])
-			try data.write(to: fileURL, options: [.atomicWrite])
-			return true
-		}
-		
-		return false
+	func sortByDate() {
+		users = users.sorted(by: { $0.date <= $1.date })
 	}
-	*/
 	
 	
 	func loadData()  {
@@ -88,7 +64,8 @@ class ReadData: ObservableObject  {
 		for user in self.users {
 			checked = checked + [false]
 		}
-		print(self.checked)
+		//print(self.checked)
+		sortByDate()
 		
 	}
 	
@@ -107,14 +84,17 @@ class ReadData: ObservableObject  {
 
 		}
 		//ReadData.save(jsonObject: fileObj, toFilename: fileName)
+		sortByDate()
 		print(users)
-		
+
 	}
 	
 	func reloadData() {
 		print("reload data")
 		loadData()
+		sortByDate()
 		print(users)
+
 	}
 	 
 }
