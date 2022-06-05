@@ -3,198 +3,232 @@
    "id": 1,
    "name": "Wipe kitchen counters",
    "duration": "2",
-   "date": "2023-02-22"
+   "date": "2023-02-22",
+   "status": "Due: other"
  },
  {
    "id": 2,
    "name": "Take out trash and recycling",
    "duration": "5",
-   "date": "2023-02-23"
+   "date": "2023-02-23",
+   "status": "Due: other"
  },
  {
    "id": 3,
    "name": "Clean toilet bowl",
    "duration": "7",
-   "date": "2023-02-24"
+   "date": "2023-02-24",
+   "status": "Due: other"
+
  },
  {
    "id": 4,
    "name": "Vacuum",
    "duration": "7",
-   "date": "2023-02-25"
+   "date": "2023-02-25",
+   "status": "Due: other"
  },
  {
    "id": 5,
    "name": "Wipe bathroom counters",
    "duration": "7",
-   "date": "2023-02-26"
+   "date": "2023-02-26",
+   "status": "Due: other"
  },
  {
    "id": 6,
    "name": "Dust bedroom surfaces",
    "duration": "21",
-   "date": "2023-02-27"
+   "date": "2023-02-27",
+   "status": "Due: other"
  },
  {
    "id": 7,
    "name": "Dust common areas (living room, kitchen, entryway)",
    "duration": "21",
-   "date": "2023-02-28"
+   "date": "2023-02-28",
+   "status": "Due: other"
  },
  {
    "id": 8,
    "name": "Mop floor",
    "duration": "14",
-   "date": "2023-03-01"
+   "date": "2023-03-01",
+   "status": "Due: other"
  },
  {
    "id": 9,
    "name": "Review mail",
    "duration": "7",
-   "date": "2023-03-02"
+   "date": "2023-03-02",
+   "status": "Due: other"
  },
  {
    "id": 10,
    "name": "Lint roll/vacuum furniture",
    "duration": "90",
-   "date": "2023-03-03"
+   "date": "2023-03-03",
+   "status": "Due: other"
  },
  {
    "id": 11,
    "name": "Wipe stovetop",
    "duration": "7",
-   "date": "2023-03-04"
+   "date": "2023-03-04",
+   "status": "Due: other"
  },
  {
    "id": 12,
    "name": "Wash sheets",
    "duration": "14",
-   "date": "2023-03-05"
+   "date": "2023-03-05",
+   "status": "Due: other"
  },
  {
    "id": 13,
    "name": "Wash towels & napkins (kitchen + bedroom)",
    "duration": "14",
-   "date": "2023-03-06"
+   "date": "2023-03-06",
+   "status": "Due: other"
  },
  {
    "id": 14,
    "name": "Clean mirrors",
    "duration": "20",
-   "date": "2023-03-07"
+   "date": "2023-03-07",
+   "status": "Due: other"
  },
  {
    "id": 15,
    "name": "Clean windows",
    "duration": "20",
-   "date": "2023-03-08"
+   "date": "2023-03-08",
+   "status": "Due: other"
  },
  {
    "id": 16,
    "name": "Water plants",
    "duration": "7",
-   "date": "2023-03-09"
+   "date": "2023-03-09",
+   "status": "Due: other"
  },
  {
    "id": 17,
    "name": "Wipe down inside of fridge",
    "duration": "30",
-   "date": "2023-03-10"
+   "date": "2023-03-10",
+   "status": "Due: other"
  },
  {
    "id": 18,
    "name": "Wipe down microwave",
    "duration": "30",
-   "date": "2023-03-11"
+   "date": "2023-03-11",
+   "status": "Due: other"
  },
  {
    "id": 19,
    "name": "Dust electronics",
    "duration": "30",
-   "date": "2023-03-12"
+   "date": "2023-03-12",
+   "status": "Due: other"
  },
  {
    "id": 20,
    "name": "Flip mattress",
    "duration": "90",
-   "date": "2023-03-13"
+   "date": "2023-03-13",
+   "status": "Due: other"
  },
  {
    "id": 21,
    "name": "Wash duvet & pillows",
    "duration": "90",
-   "date": "2023-03-14"
+   "date": "2023-03-14",
+   "status": "Due: other"
  },
  {
    "id": 22,
    "name": "Clean oven",
    "duration": "90",
-   "date": "2023-03-15"
+   "date": "2023-03-15",
+   "status": "Due: other"
  },
  {
    "id": 23,
    "name": "Dust baseboards",
    "duration": "90",
-   "date": "2023-03-16"
+   "date": "2023-03-16",
+   "status": "Due: other"
  },
  {
    "id": 24,
    "name": "Unclog/deep clean drains",
    "duration": "90",
-   "date": "2023-03-17"
+   "date": "2023-03-17",
+   "status": "Due: other"
  },
  {
    "id": 25,
    "name": "Disinfect garbage & recycling cans",
    "duration": "90",
-   "date": "2023-03-18"
+   "date": "2023-03-18",
+   "status": "Due: other"
  },
  {
    "id": 26,
    "name": "Clean rugs",
    "duration": "182",
-   "date": "2023-03-19"
+   "date": "2023-03-19",
+   "status": "Due: other"
  },
  {
    "id": 27,
    "name": "Replace air filters",
    "duration": "182",
-   "date": "2023-03-20"
+   "date": "2023-03-20",
+   "status": "Due: other"
  },
  {
    "id": 28,
    "name": "Replace toothbrush",
    "duration": "182",
-   "date": "2023-03-21"
+   "date": "2023-03-21",
+   "status": "Due: other"
  },
  {
    "id": 29,
    "name": "Replace razor (men)",
    "duration": "14",
-   "date": "2023-03-22"
+   "date": "2023-03-22",
+   "status": "Due: other"
  },
  {
    "id": 30,
    "name": "Replace razor (women)",
    "duration": "90",
-   "date": "2023-03-23"
+   "date": "2023-03-23",
+   "status": "Due: other"
  },
  {
    "id": 31,
    "name": "Dust ceiling fans",
    "duration": "365",
-   "date": "2023-03-24"
+   "date": "2023-03-24",
+   "status": "Due: other"
  },
  {
    "id": 32,
    "name": "Declutter closet",
    "duration": "365",
-   "date": "2023-03-25"
+   "date": "2023-03-25",
+   "status": "Due: other"
  },
  {
    "id": 33,
    "name": "Clean/organize pantry",
    "duration": "365",
-   "date": "2023-03-26"
+   "date": "2023-03-26",
+   "status": "Due: other"
  }
 ]

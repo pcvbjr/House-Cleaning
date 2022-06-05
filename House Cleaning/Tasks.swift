@@ -35,6 +35,8 @@ class ReadData: ObservableObject  {
 
 		
 	init(){
+		checkFileInDocsDir()
+		//updateStatuses()
 		loadData()
 		//var fileObj = try? ReadData.loadJSON(withFilename: fileName)
 	}
@@ -44,18 +46,56 @@ class ReadData: ObservableObject  {
 	}
 	
 	
+	func checkFileInDocsDir() {
+		let docsPath = getDocumentsDirectory()
+		let docsUrl = try? NSURL(resolvingAliasFileAt: docsPath).appendingPathComponent("test_json.json")
+
+		if let pathComponent = docsUrl {
+				let filePath = pathComponent.path
+				let fileManager = FileManager.default
+				if fileManager.fileExists(atPath: filePath) {
+					print("FILE AVAILABLE")                    // set fileExists to true
+
+				} else {
+					print("FILE NOT AVAILABLE")
+					copyFromBundleToDocsDir()
+				}
+			} else {
+				print("FILE PATH NOT AVAILABLE")               // set fileExists to false
+				copyFromBundleToDocsDir()
+			}
+	}
+	
+	func copyFromBundleToDocsDir() {
+		var bundleFilePath = Bundle.main.url(forResource: fileName, withExtension: fileExtension)!
+		
+		let dataStr = try? String(contentsOf: bundleFilePath, encoding: .utf8)
+
+		let url = getDocumentsDirectory().appendingPathComponent("test_json.json")
+		
+		do {
+			try dataStr!.write(to: url, atomically: true, encoding: .utf8)
+		}
+		catch {
+			Swift.print("could not write dataStr to docs dir")
+		}
+	}
+	
 	func loadData()  {
-		/*guard let url = Bundle.main.url(forResource: fileName, withExtension: fileExtension)
-			else {
-				print("Json file not found")
-				return
-			}*/
+		
+		
+		//let docsPathStr = try? String(contentsOf: docsPath)
+		//let docsFilePathStr = docsPathStr! + "/test_json.json"
+		
+		
+		
+
 		let url = try? FileManager.default
 			.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
 			.appendingPathComponent(fileName)
 			.appendingPathExtension(fileExtension)
 		
-		print("---> reading file: \(url)")
+		print("---> reading file: \(url!)")
 
 		var data = try? Data(contentsOf: url!)
 		var users = try? JSONDecoder().decode([User].self, from: data!)
