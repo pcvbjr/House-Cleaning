@@ -7,6 +7,22 @@
 
 import Foundation
 
+extension DateComponents: Comparable {
+	public static func < (lhs: DateComponents, rhs: DateComponents) -> Bool {
+		let now = Date()
+		let calendar = Calendar.current
+		return calendar.date(byAdding: lhs, to: now)! < calendar.date(byAdding: rhs, to: now)!
+	}
+}
+
+extension DateComponents: Equatable {
+	public static func == (lhs: DateComponents, rhs: DateComponents) -> Bool {
+		let now = Date()
+		let calendar = Calendar.current
+		return calendar.date(byAdding: lhs, to: now)! == calendar.date(byAdding: rhs, to: now)!
+	}
+}
+
 // returns in yyyy-MM-dd format
 // TO DO: NEED TO ENSURE THAT THERE IS ZERO PADDING TO LEFT IN SINGLE DIGIT DAYS AND MONTHS
 	func dateToString (date: DateComponents) -> String {

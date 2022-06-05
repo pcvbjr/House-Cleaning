@@ -36,9 +36,8 @@ class ReadData: ObservableObject  {
 		
 	init(){
 		checkFileInDocsDir()
-		//updateStatuses()
+		updateStatuses() //TODO: this needs updating see notes
 		loadData()
-		//var fileObj = try? ReadData.loadJSON(withFilename: fileName)
 	}
 	
 	func sortByDate() {
@@ -81,14 +80,45 @@ class ReadData: ObservableObject  {
 		}
 	}
 	
+	
+	func updateStatuses() {
+		// this checks dates in json file to update status for each task
+		let url = try? FileManager.default
+			.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+			.appendingPathComponent(fileName)
+			.appendingPathExtension(fileExtension)
+		
+		var data = try? Data(contentsOf: url!)
+		var users = try? JSONDecoder().decode([User].self, from: data!)
+		
+		///
+		let currDate = Date()
+		let calendar = Calendar.autoupdatingCurrent
+		let today = calendar.dateComponents([.year, .month, .day], from: currDate)
+		///
+		
+		for user in users! {
+			var status: String
+			var date = stringToDate(string: user.date)
+			let dateDate = calendar.date(from: date)
+
+
+			if date < today {
+				status = "overdue"
+			} else if date == today {
+				status = "due today"
+			} else if dateDate! < calendar.date(byAdding: .day, value: 8, to: currDate)!{
+				status = "due within 7 days"
+			} else {
+				status = "due other"
+			}
+			// TODO: use these statuses to update status in json file. Then use status in json file as input to list element view, changing color based on status
+				
+			
+		}
+	}
+	
 	func loadData()  {
-		
-		
-		//let docsPathStr = try? String(contentsOf: docsPath)
-		//let docsFilePathStr = docsPathStr! + "/test_json.json"
-		
-		
-		
 
 		let url = try? FileManager.default
 			.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
