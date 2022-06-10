@@ -17,7 +17,7 @@ struct OverdueListItemView: View {
     
     var body: some View {
         ZStack{
-            Color.red.padding([.leading, .trailing], -20)
+            Color("CustomRedColor").padding([.leading, .trailing], -20)
             HStack{
                 CheckboxView(checked: $checked, id: id, duration: duration, datas: datas)
             //}
