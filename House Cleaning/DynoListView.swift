@@ -9,94 +9,43 @@ import SwiftUI
 import Foundation
 
 struct DynoListView: View {
-    
-    // returns in yyyy-MM-dd format
-    // TO DO: NEED TO ENSURE THAT THERE IS ZERO PADDING TO LEFT IN SINGLE DIGIT DAYS AND MONTHS
-        func dateToString (date: DateComponents) -> String {
-            var yearInt = date.year
-            var monthInt = date.month
-            var dayInt = date.day
-            
-            var yearStr = yearInt != nil ? String(yearInt!) : "";
-            
-            var monthStr = monthInt != nil ? String(monthInt!) : "";
-            
-            var dayStr = dayInt != nil ? String(dayInt!) : "";
-            
-            return (yearStr + "-" + monthStr + "-" + dayStr)
-        }
-    
-    // func that takes a String and returns in a DateComponents obj
-        func stringToDate (string: String) -> DateComponents {
-            // split String into an array by separator
-            let date = string.components(separatedBy: "-")
-            // assign variables to each array item
-            let yearStr = date[0]
-            let monthStr = date[1]
-            let dayStr = date[2]
-            
-            // convert String to Int type. If String value
-            // is not a number, make the var an Int w/value 0
-            let yearInt = Int(yearStr) ?? 0
-            let monthInt = Int(monthStr) ?? 0
-            let dayInt = Int(dayStr) ?? 0
-            
-            
-            // create DateComponents object
-            let finalDate = DateComponents(calendar: Calendar.autoupdatingCurrent, year: yearInt, month: monthInt, day: dayInt)
-            
-            // return it
-            
-            return finalDate
-        }
-    
-    // func that takes a time duration (String), adds it to today's date, and returns the final date as a string
-    
-    func dateAdder (duration: String) -> String {
-        
-        // create duration Int for adder function
-        let dayInt = Int(duration) ?? 0
-        
-        // set reference calendar for adding functions
-        let calendar = Calendar.autoupdatingCurrent
-        
-        // create Date() obj; automatically set to today's date & time
-        let currDate = Date()
-        
-        // CODE JUST FOR REFERENCE: conv ert dateComponents() obj to a Date() obj
-        
-//        guard let currDateObj = calendar.date(from:       currDateComponent) else {
-//            return "ADDER ERROR: conversion to Date obj failed"
-//        }
-        
-        // add your day duration to the date passed in to the function
-        guard let addedDate = calendar.date(byAdding: .day, value: dayInt, to: currDate) else { return "ADDER ERROR: built in date function failed" }
-        
-        // convert your added date of Date() obj back to DateComponents() obj
-        let dateComponentsOfAdded = Calendar.autoupdatingCurrent.dateComponents([.year, .month, .day], from: addedDate)
+    @ObservedObject var datas = ReadData()
+    @State var overdue = false
 
-        // convert DateComponents() obj to a String
-        let finalDate = dateToString(date: dateComponentsOfAdded)
-        
-        return finalDate
-    }
-    
+
     var body: some View {
-        // build a single date components object
-               var testDate = DateComponents(calendar: Calendar.autoupdatingCurrent, year: 1998, month: 1, day: 24)
-               
-               var strDateTest = dateToString(date: testDate)
-               
         
-        var testDurationString = "90"
-        
-        var dateAdded = dateAdder(duration: testDurationString)
-        
-        VStack{
-            Text("This is a dateAdder test: " + dateAdded)
+        List {
+            ForEach(datas.users) {
+                let user = $0
+                let today = Date()
+                let todayDateComponents = Calendar.autoupdatingCurrent.dateComponents([.year, .month, .day], from: today)
+                let today_str = dateToString(date: todayDateComponents)
+                
+                // create a status variable to determine what View to show
+                let userStatus = user.status
+                
+                switch userStatus {
+                
+                // if the case "Due: overdue" is met, use the corresponding View
+                case "Due: overdue":
+                    OverdueListItemView(checked: $datas.checked[user.id-1], id: user.id, duration: user.duration, datas: datas, name: user.name, date: user.date)
+                // if the case "Due: overdue" is not met, use the case "Due: today" and its corresponding view
+                case "Due: today":
+                    DueTodayListItemView(checked: $datas.checked[user.id-1], id: user.id, duration: user.duration, datas: datas, name: user.name, date: user.date)
+                // if the cases overdue and today are not met, check if the case for due within 7 days is met and, if so, use its corresponding view
+                case "Due: within 7 days":
+                    DueNext7DaysListItemView(checked: $datas.checked[user.id-1], id: user.id, duration: user.duration, datas: datas, name: user.name, date: user.date)
+                // if none of the cases are met, the default is the the view associated with "Due: other"
+                default:
+                    DueOtherListItemView(checked: $datas.checked[user.id-1], id: user.id, duration: user.duration, datas: datas, name: user.name, date: user.date)
+                }
+
+            }
 
         }
-               }
+    
+    }
 }
 
 struct DynoListView_Previews: PreviewProvider {
