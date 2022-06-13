@@ -4,7 +4,6 @@
 //
 //  Created by Kaitlyn McCarthy on 3/12/22.
 //
-
 import SwiftUI
 
 struct CheckboxView: View {
@@ -25,12 +24,14 @@ struct CheckboxView: View {
                         user.date = newDate
                         print(user.date)
                         print(user)
+                        // update Status and updated user.status changed
+                        let newStatus = updateStatusOnceChecked(newDate: newDate)
+                        user.status = newStatus
                         datas.users[count] = user
                         print(datas.users)
                         // user is updated to new date. Need to write this to json file
                         print("checked, initiate write")
                         datas.writeData()
-                        //datas.reloadData()
                         break
                     }
                     else{
@@ -68,4 +69,3 @@ struct CheckBoxView_Previews: PreviewProvider {
         }
     }
 }
-
