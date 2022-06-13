@@ -95,3 +95,28 @@ func dateAdder (duration: String) -> String {
     
     return finalDate
 }
+
+
+// func that takes the new date once a List Item checkbox is checked (String) and returns the status for the new date as a String
+func updateStatusOnceChecked(newDate: String) -> String {
+    let newDateDC = stringToDate(string: newDate)
+    
+    let currDate = Date()
+    let calendar = Calendar.autoupdatingCurrent
+    let today = calendar.dateComponents([.year, .month, .day], from: currDate)
+    let newDateDate = calendar.date(from: newDateDC)
+
+    var status: String
+    
+    if newDateDC < today {
+        status = "Due: overdue"
+    } else if newDateDC == today {
+        status = "Due: today"
+    } else if newDateDate! < calendar.date(byAdding: .day, value: 8, to: currDate)!{
+        status = "Due: within 7 days"
+    } else {
+        status = "Due: other"
+    }
+    
+    return status
+}
