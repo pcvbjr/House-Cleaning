@@ -17,29 +17,41 @@ struct DueNext7DaysListItemView: View {
     
     var body: some View {
         ZStack{
-            Color.blue.padding([.leading, .trailing], -20)
+            Color(.white).padding([.leading, .trailing], -20)
             HStack{
                 CheckboxView(checked: $checked, id: id, duration: duration, datas: datas)
             //}
 
                 VStack(alignment: .leading) {
-                    Text(name)
-                        .font(.title)
-                        .fontWeight(.heavy)
-                        .foregroundColor(Color.gray)
-                    HStack{
-                        Text(duration)
+                    HStack {
+                        Text(name)
                             .font(.title3)
-                            .foregroundColor(Color.yellow)
+                            .foregroundColor(Color.black)
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("DUE THIS WEEK")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .padding(4)
+                            .background(Color("CustomBlueColor"))
+                            .foregroundColor(Color("FontColor"))
+                            .border(Color("CustomBlueColor"), width: 2)
+                    }
+                    Spacer()
+                    HStack{
+                        Text(duration + " days")
+                            .font(.body)
+                            .foregroundColor(Color.black)
                         Spacer()
                         Text(date)
-                            .font(.title3)
+                            .font(.body)
                     }
                 }
             }
         }
     }
 }
+
 
 //struct DueNext7DaysListItemView_Previews: PreviewProvider {
 //    static var previews: some View {
