@@ -83,7 +83,7 @@ class ReadData: ObservableObject  {
         }
     }
     
-    
+    // didn't use this to update statuses when ListItem checkboxes get checked
     func updateStatuses() {
         // this checks dates in json file to update status for each task
         let url = try? FileManager.default
@@ -94,11 +94,9 @@ class ReadData: ObservableObject  {
         var data = try? Data(contentsOf: url!)
         var users = try? JSONDecoder().decode([User].self, from: data!)
         
-        ///
         let currDate = Date()
         let calendar = Calendar.autoupdatingCurrent
         let today = calendar.dateComponents([.year, .month, .day], from: currDate)
-        ///
         
         for user in users! {
             var status: String
@@ -142,7 +140,7 @@ class ReadData: ObservableObject  {
         
     }
     
-// TODO: writeData() furl does not match loadData() url. These must match in order to read and write to the same file!
+// KEY: writeData() url and loadData() url MUST match in order to read and write to the same file!
     func writeData() {
         do {
             let furl = try FileManager.default
@@ -156,7 +154,6 @@ class ReadData: ObservableObject  {
             print("---> error saveToFile: \(error)")
 
         }
-        //ReadData.save(jsonObject: fileObj, toFilename: fileName)
         sortByDate()
         print(users)
 
@@ -171,5 +168,3 @@ class ReadData: ObservableObject  {
     }
      
 }
-
-
