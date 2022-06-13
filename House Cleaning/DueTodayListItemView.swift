@@ -17,23 +17,35 @@ struct DueTodayListItemView: View {
     
     var body: some View {
         ZStack{
-            Color.yellow.padding([.leading, .trailing], -20)
+            Color(.white).padding([.leading, .trailing], -20)
             HStack{
                 CheckboxView(checked: $checked, id: id, duration: duration, datas: datas)
             //}
 
                 VStack(alignment: .leading) {
-                    Text(name)
-                        .font(.title)
-                        .fontWeight(.heavy)
-                        .foregroundColor(Color.gray)
-                    HStack{
-                        Text(duration)
+                    HStack {
+                        Text(name)
                             .font(.title3)
+                            .foregroundColor(Color.black)
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("DUE TODAY")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .padding(4)
+                            .background(Color("CustomGreenColor"))
+                            .foregroundColor(Color("FontColor"))
+                            .border(Color("CustomGreenColor"), width: 2)
+                            
+                    }
+                    Spacer()
+                    HStack{
+                        Text(duration + " days")
+                            .font(.body)
                             .foregroundColor(Color.black)
                         Spacer()
                         Text(date)
-                            .font(.title3)
+                            .font(.body)
                     }
                 }
             }
