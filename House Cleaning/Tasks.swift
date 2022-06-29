@@ -38,7 +38,7 @@ class ReadData: ObservableObject  {
         
     init(){
         checkFileInDocsDir()
-        updateStatuses() //TODO: this needs updating see notes
+        updateStatuses() // update statuses before loading the app to ensure latest status is reflected for each item
         loadData()
 
     }
@@ -83,7 +83,6 @@ class ReadData: ObservableObject  {
         }
     }
     
-    // didn't use this to update statuses when ListItem checkboxes get checked
     func updateStatuses() {
         // this checks dates in json file to update status for each task
         let url = try? FileManager.default
@@ -92,18 +91,21 @@ class ReadData: ObservableObject  {
             .appendingPathExtension(fileExtension)
         
         var data = try? Data(contentsOf: url!)
-        var users = try? JSONDecoder().decode([User].self, from: data!)
+        users = try! JSONDecoder().decode([User].self, from: data!)
         
         let currDate = Date()
         let calendar = Calendar.autoupdatingCurrent
         let today = calendar.dateComponents([.year, .month, .day], from: currDate)
-        
-        for user in users! {
+        print(users)
+        var count = 0
+        for user in users {
+            print("before")
+            print(user)
             var status: String
             var date = stringToDate(string: user.date)
             let dateDate = calendar.date(from: date)
-
-
+            
+            // check and set status of User obj based on date
             if date < today {
                 status = "Due: overdue"
             } else if date == today {
@@ -113,10 +115,17 @@ class ReadData: ObservableObject  {
             } else {
                 status = "Due: other"
             }
-            // TODO: use these statuses to update status in json file. Then use status in json file as input to list element view, changing color based on status
-                
+            
+            // set status within users
+            users[count].status = status
+    
+            count += 1
+                        
             
         }
+        
+        // write all the updated statuses to the JSON file in the Docs Dir
+        writeData()
     }
     
     func loadData()  {
@@ -129,13 +138,12 @@ class ReadData: ObservableObject  {
         print("---> reading file: \(url!)")
 
         var data = try? Data(contentsOf: url!)
-        var users = try? JSONDecoder().decode([User].self, from: data!)
-        self.users = users!
+        users = try! JSONDecoder().decode([User].self, from: data!)
+        self.users = users
         
         for user in self.users {
             checked = checked + [false]
         }
-        //print(self.checked)
         sortByDate()
         
     }
@@ -148,6 +156,7 @@ class ReadData: ObservableObject  {
                 .appendingPathComponent(fileName)
                 .appendingPathExtension(fileExtension)
             print("---> writing to: \(furl)")
+            
             let data = try JSONEncoder().encode(users)
             try data.write(to: furl)
         } catch {
