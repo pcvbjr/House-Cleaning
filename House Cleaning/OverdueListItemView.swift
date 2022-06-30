@@ -8,41 +8,52 @@
 import SwiftUI
 
 struct OverdueListItemView: View {
-	@Binding var checked: Bool
-	var id: Int
-	var duration: String
-	var datas: ReadData
-	var name: String
-	var date: String
-	
+    @Binding var checked: Bool
+    var id: Int
+    var duration: String
+    var datas: ReadData
+    var name: String
+    var date: String
+    
     var body: some View {
-		ZStack{
-			Color.red.padding([.leading, .trailing], -20)
-			HStack{
-				CheckboxView(checked: $checked, id: id, duration: duration, datas: datas)
-			//}
+        ZStack{
+            Color(.white).padding([.leading, .trailing], -20)
+            HStack{
+                CheckboxView(checked: $checked, id: id, duration: duration, datas: datas)
+            //}
 
-				VStack(alignment: .leading) {
-					Text(name)
-						.font(.title)
-						.fontWeight(.heavy)
-						.foregroundColor(Color.gray)
-					HStack{
-						Text(duration)
-							.font(.title3)
-							.foregroundColor(Color.red)
-						Spacer()
-						Text(date)
-							.font(.title3)
-					}
-				}
-			}
-		}
-	}
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(name)
+                            .font(.title3)
+                            .foregroundColor(Color.black)
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("OVERDUE")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .padding(4)
+                            .background(Color("CustomRedColor"))
+                            .foregroundColor(Color("FontColor"))
+                            .border(Color("CustomRedColor"), width: 2)
+                    }
+                    Spacer()
+                    HStack{
+                        Text(duration + " days")
+                            .font(.body)
+                            .foregroundColor(Color.black)
+                        Spacer()
+                        Text(date)
+                            .font(.body)
+                    }
+                }
+            }
+        }
+    }
 }
 
 /*struct OverdueListItemView_Previews: PreviewProvider {
     static var previews: some View {
-		OverdueListItemView(checked: true, id: 2, duration: "12", datas: ReadData, name: <#String#>, date: <#String#>)
+        OverdueListItemView(checked: true, id: 2, duration: "12", datas: ReadData, name: <#String#>, date: <#String#>)
     }
 }*/
