@@ -9,52 +9,44 @@ import SwiftUI
 import Foundation
 
 struct DynoListView: View {
-	@ObservedObject var datas = ReadData()
-	@State var overdue = false
+    @ObservedObject var datas = ReadData()
+    @State var overdue = false
 
 
     var body: some View {
-		
-		//List(datas.users){ user in
-		List {
-			ForEach(datas.users) {
-				let user = $0
-				let today = Date()
-				let todayDateComponents = Calendar.autoupdatingCurrent.dateComponents([.year, .month, .day], from: today)
-				let today_str = dateToString(date: todayDateComponents)
-				/*if (user.date < today_str) {
-					overdue.toggle()
-				}*/
-				//print(today_str)
-				
-				OverdueListItemView(checked: $datas.checked[user.id-1], id: user.id, duration: user.duration, datas: datas, name: user.name, date: user.date)
-					.edgesIgnoringSafeArea(.all)
+        
+        List {
+            ForEach(datas.users) {
+                let user = $0
+                let today = Date()
+                let todayDateComponents = Calendar.autoupdatingCurrent.dateComponents([.year, .month, .day], from: today)
+                let today_str = dateToString(date: todayDateComponents)
+                
+                // create a status variable to determine what View to show
+                let userStatus = user.status
+                
+                // switch background color based on List Item status
+                switch userStatus {
+                
+                // if the case "Due: overdue" is met, use the corresponding View
+                case "Due: overdue":
+                    OverdueListItemView(checked: $datas.checked[user.id-1], id: user.id, duration: user.duration, datas: datas, name: user.name, date: user.date)
+                // if the case "Due: overdue" is not met, use the case "Due: today" and its corresponding view
+                case "Due: today":
+                    DueTodayListItemView(checked: $datas.checked[user.id-1], id: user.id, duration: user.duration, datas: datas, name: user.name, date: user.date)
+                // if the cases overdue and today are not met, check if the case for due within 7 days is met and, if so, use its corresponding view
+                case "Due: within 7 days":
+                    DueNext7DaysListItemView(checked: $datas.checked[user.id-1], id: user.id, duration: user.duration, datas: datas, name: user.name, date: user.date)
+                // if none of the cases are met, the default is the the view associated with "Due: other"
+                default:
+                    DueOtherListItemView(checked: $datas.checked[user.id-1], id: user.id, duration: user.duration, datas: datas, name: user.name, date: user.date)
+                }
 
-				/*
-				HStack{
-					CheckboxView(checked: $datas.checked[user.id-1], id: user.id, duration: user.duration, datas: datas)
-				//}
+            }
 
-					VStack(alignment: .leading) {
-						Text(user.name)
-							.font(.title)
-							.fontWeight(.heavy)
-							.foregroundColor(Color.gray)
-						HStack{
-							Text(user.duration)
-								.font(.title3)
-								.foregroundColor(Color.red)
-							Spacer()
-							Text(user.date)
-								.font(.title3)
-						}
-					}
-				}
-				*/
-			}
-
-		}
-	}
+        }
+    
+    }
 }
 
 struct DynoListView_Previews: PreviewProvider {
